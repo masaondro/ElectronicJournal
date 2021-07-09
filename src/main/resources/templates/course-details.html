@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header::header"></header>
+
+
+<div class="container mt-5 mb-5">
+    <div th:each="el: ${course}">
+        <h1 th:text="'Курс '+ ${el.name}"/>
+        <h3 th:text="'Номер курса: ' + ${el.number}"/>
+        <h3 th:text="'Цена курса: ' + ${el.price}"/>
+
+        <a th:href="'/courses/'+${el.id}+'/edit'" class="btn btn-warning">Редактировать</a>
+        <form th:action="'/courses/' + ${el.id} + '/remove'" method="post">
+            <button type="submit" class="btn btn-warning">Удалить</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

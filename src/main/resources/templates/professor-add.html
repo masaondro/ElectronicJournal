@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header::header"></header>
+
+
+<div class="container mt-5 mb-5">
+    <h1>Добавление профессора</h1>
+    <form action="/professors/add" method="post">
+        <label>Введите имя профессора</label>
+        <input type="text" name="fio" placeholder="Введите имя профессора" class="form-control"><br>
+        <label>Введите адрес профессора</label>
+        <input type="text" name="adres" placeholder="Введите адрес профессора" class="form-control"><br>
+        <label>Введите телефон профессора</label>
+        <input type="text" name="phone" placeholder="Введите телефон профессора" class="form-control"><br>
+        <label>Введите зароботную плату профессора</label>
+        <input type="text" name="salary" placeholder="Введите заботную плату" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Добавить профессора</button>
+
+    </form>
+</div>
+
+</body>
+</html>

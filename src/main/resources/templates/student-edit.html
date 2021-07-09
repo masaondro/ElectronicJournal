@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header::header"></header>
+
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование студента</h1>
+    <div th:each="el: ${student}">
+        <form method="post">
+            <label>Введите имя студента</label>
+            <input type="text" th:value="${el.fio}" name="fio" placeholder="Введите имя студента" class="form-control"><br>
+            <label>Введите email студента</label>
+            <input type="text" th:value="${el.email}" name="email" placeholder="Введите email студента" class="form-control"><br>
+            <label>Введите адрес студента</label>
+            <input type="text" th:value="${el.adres}" name="adres" placeholder="Введите адрес студента" class="form-control"><br>
+            <label>Введите телефон студента</label>
+            <input type="text" th:value="${el.phone}" name="phone" placeholder="Введите телефон студента" class="form-control"><br>
+            <label>Введите номер зачетной книжки студента</label>
+            <input type="text" th:value="${el.record_book}" name="record_book" placeholder="Введите номер зачетной книжки студента" class="form-control"><br>
+            <button type="submit" class="btn btn-success">Обновить</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

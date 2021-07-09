@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список студентов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+    <a href="/students/add" class="btn btn-success">Добавить студента</a>
+    <h1>Запись студентов на курс</h1>
+    <h1>Выберите студента</h1>
+    <div th:each="el: ${students}" class="alert alert-info mt-2">
+        <h3 th:text="${el.fio}"/>
+        <a th:href="'/students/'+${el.id}" class="btn btn-warning">Детальнее</a>
+        <a th:href="'/courses/' + ${id_course} + '/enroll/'+ ${el.id}" class="btn btn-success">Записать</a>
+    </div>
+</div>
+</body>
+</html>

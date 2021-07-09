@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/header::header"></header>
+
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование курса</h1>
+    <div th:each="el: ${course}">
+        <form method="post">
+            <label>Введите название курса</label>
+            <input type="text" th:value="${el.name}" name="name" placeholder="Введите название курса" class="form-control"><br>
+            <label>Введите номер курса</label>
+            <input type="text" th:value="${el.number}" name="number" placeholder="Введите номер курса" class="form-control"><br>
+            <label>Введите стоимость курса</label>
+            <input type="text" th:value="${el.price}" name="price" placeholder="Введите стоимость курса" class="form-control"><br>
+            <label>Введите номер ведущего профессора</label>
+            <input type="text" th:value="${el.professor}" name="professor" placeholder="Введите номер читающего профессора" class="form-control"><br>
+            <label style="color:red;" th:text="${error}"/><br>
+            <button type="submit" class="btn btn-success">Обновить</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
